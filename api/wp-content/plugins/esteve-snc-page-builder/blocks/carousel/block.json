@@ -1,0 +1,41 @@
+{
+	"name": "carousel",
+	"title": "Carousel",
+	"description": "Carousel con bloques de descarga de archivos o links a otras páginas",
+	"category": "formatting",
+	"icon": {
+		"background": "#7e70af",
+		"foreground": "#FFFFFF",
+		"src": "slides"
+	},
+	"keywords": ["carousel", "descargas", "downloads", "archivo", "link"],
+	"acf": {
+		"mode": "edit",
+		"renderTemplate": "carousel.php"
+	},
+	"supports": {
+		"align": true
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"styles": [
+		{ 
+			"name": "default", 
+			"label": "Rosa", 
+			"isDefault": true 
+		},
+		{ 
+			"name": "blue", 
+			"label": "Azul"
+		},
+		{ 
+			"name": "purple", 
+			"label": "Púrpura"
+		}
+	],
+	"style": "file:./carousel.css"
+}

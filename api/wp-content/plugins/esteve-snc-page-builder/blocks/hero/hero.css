@@ -1,0 +1,20 @@
+.wp-block-acf-hero{
+	box-shadow: 0 10rem 0 #EEE inset;
+}
+
+.wp-block-acf-hero{}
+
+.wp-block-acf-hero.is-style-default{
+	box-shadow: 0 10rem 0 var(--esteve-pink) inset;
+	color: #FFF;
+}
+
+.wp-block-acf-hero.is-style-blue{
+	box-shadow: 0 10rem 0 var(--esteve-blue) inset;
+	color: #FFF;
+}
+
+.wp-block-acf-hero.is-style-purple{
+	box-shadow: 0 10rem 0 var(--esteve-purple) inset;
+	color: #FFF;
+}

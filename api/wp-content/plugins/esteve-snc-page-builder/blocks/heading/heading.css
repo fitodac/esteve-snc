@@ -1,0 +1,11 @@
+.wp-block-acf-heading.is-style-default{
+	color: var(--esteve-pink);
+}
+
+.wp-block-acf-heading.is-style-blue{
+	color: var(--esteve-blue);
+}
+
+.wp-block-acf-heading.is-style-purple{
+	color: var(--esteve-purple);
+}

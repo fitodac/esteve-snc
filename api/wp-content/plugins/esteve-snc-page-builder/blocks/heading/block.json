@@ -1,0 +1,41 @@
+{
+	"name": "heading",
+	"title": "Texto destacado",
+	"description": "Imagen principal de cabecera de páginas",
+	"category": "content",
+	"icon": {
+		"background": "#7e70af",
+		"foreground": "#FFFFFF",
+		"src": "heading"
+	},
+	"keywords": ["destacado", "heading", "titulos"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "heading.php"
+	},
+	"supports": {
+		"alignText": true
+	},
+	"attributes": {
+		"alignText": {
+			"type": "string",
+			"default": "center"
+		}
+	},
+	"styles": [
+		{ 
+			"name": "default", 
+			"label": "Rosa", 
+			"isDefault": true 
+		},
+		{ 
+			"name": "blue", 
+			"label": "Azul"
+		},
+		{ 
+			"name": "purple", 
+			"label": "Púrpura"
+		}
+	],
+	"style": "file:./heading.css"
+}

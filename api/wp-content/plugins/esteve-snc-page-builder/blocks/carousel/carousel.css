@@ -1,0 +1,29 @@
+.wp-block-acf-carousel .btn-link{
+	background-color: var(--esteve-purple);
+}
+
+.wp-block-acf-carousel.is-style-default{
+	background-color: var(--esteve-pink-100);
+}
+
+.wp-block-acf-carousel.is-style-default .title{
+	color: var(--esteve-pink);
+}
+
+
+.wp-block-acf-carousel.is-style-blue{
+	background-color: var(--esteve-blue-100);
+}
+
+.wp-block-acf-carousel.is-style-blue .title{
+	color: var(--esteve-blue);
+}
+
+
+.wp-block-acf-carousel.is-style-purple{
+	background-color: var(--esteve-purple-100);
+}
+
+.wp-block-acf-carousel.is-style-purple .title{
+	color: var(--esteve-purple);
+}

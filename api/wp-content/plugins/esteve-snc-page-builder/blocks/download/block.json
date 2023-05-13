@@ -1,0 +1,20 @@
+{
+	"name": "download",
+	"title": "Download",
+	"description": "Sección para descarga de un archivo en la página",
+	"category": "formatting",
+	"icon": {
+		"background": "#7e70af",
+		"foreground": "#FFFFFF",
+		"src": "pdf"
+	},
+	"keywords": ["descargas", "pdf", "word", "downloads", "archivo"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "download.php"
+	},
+	"supports": {
+		"alignText": true
+	},
+	"style": "file:./download.css"
+}

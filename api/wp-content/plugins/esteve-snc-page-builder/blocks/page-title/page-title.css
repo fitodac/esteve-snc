@@ -1,0 +1,18 @@
+.wp-block-acf-page-title{
+	background: #EEE;
+}
+
+.wp-block-acf-page-title.is-style-default{
+	background-color: var(--esteve-pink);
+	color: #FFF;
+}
+
+.wp-block-acf-page-title.is-style-blue{
+	background-color: var(--esteve-blue);
+	color: #FFF;
+}
+
+.wp-block-acf-page-title.is-style-purple{
+	background-color: var(--esteve-purple);
+	color: #FFF;
+}

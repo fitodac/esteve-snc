@@ -1,0 +1,20 @@
+{
+	"name": "video",
+	"title": "Video",
+	"description": "Sección de video",
+	"category": "formatting",
+	"icon": {
+		"background": "#7e70af",
+		"foreground": "#FFFFFF",
+		"src": "youtube"
+	},
+	"keywords": ["video", "media", "youtube"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "video.php"
+	},
+	"supports": {
+		"align": true
+	},
+	"style": "file:./video.css"
+}

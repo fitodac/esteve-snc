@@ -1,0 +1,41 @@
+{
+	"name": "hero",
+	"title": "Hero",
+	"description": "Imagen principal de cabecera de páginas",
+	"category": "formatting",
+	"icon": {
+		"background": "#7e70af",
+		"foreground": "#FFFFFF",
+		"src": "format-image"
+	},
+	"keywords": ["hero", "image", "cabecera", "header"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "hero.php"
+	},
+	"supports": {
+		"align": true
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"styles": [
+		{ 
+			"name": "default", 
+			"label": "Rosa", 
+			"isDefault": true 
+		},
+		{ 
+			"name": "blue", 
+			"label": "Azul"
+		},
+		{ 
+			"name": "purple", 
+			"label": "Púrpura"
+		}
+	],
+	"style": "file:./hero.css"
+}

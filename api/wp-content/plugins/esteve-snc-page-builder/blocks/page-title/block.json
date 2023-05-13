@@ -1,0 +1,41 @@
+{
+	"name": "page_title",
+	"title": "Page title",
+	"description": "Este será el título que se mostrará en la página",
+	"category": "formatting",
+	"icon": {
+		"background": "#7e70af",
+		"foreground": "#FFFFFF",
+		"src": "editor-textcolor"
+	},
+	"keywords": ["title", "titulo", "página", "pagina", "page"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "page-title.php"
+	},
+	"supports": {
+		"align": true
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"styles": [
+		{ 
+			"name": "default", 
+			"label": "Rosa", 
+			"isDefault": true 
+		},
+		{ 
+			"name": "blue", 
+			"label": "Azul"
+		},
+		{ 
+			"name": "purple", 
+			"label": "Púrpura"
+		}
+	],
+	"style": "file:./page-title.css"
+}
