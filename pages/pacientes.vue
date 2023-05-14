@@ -18,6 +18,33 @@ import Layout from '@/layouts/Layout'
 				</h2>
 			</div>
 		</section>
+
+
+		<section class="px-6 pt-20 xl:px-0">
+			<div class="container mx-auto">
+				<h3 class="section-title text-purple">
+					Depresión y ansiedad
+				</h3>
+			</div>
+		</section>
+
+
+		<section class="px-6 pt-20 xl:px-0">
+			<div class="container mx-auto">
+				<h3 class="section-title text-purple">
+					Enfermedad de Alzheimer
+				</h3>
+			</div>
+		</section>
+
+
+		<section class="px-6 pt-20 xl:px-0">
+			<div class="container mx-auto">
+				<h3 class="section-title text-purple">
+					Enfermedad de Párkinson
+				</h3>
+			</div>
+		</section>
   </layout>
 </template>
 

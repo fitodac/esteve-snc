@@ -15,6 +15,51 @@ import Layout from '@/layouts/Layout'
 				</h1>
 			</div>
 		</section>
+
+
+		<section class="px-6 pt-20 xl:px-0">
+			<div class="container mx-auto">
+				<h3 class="section-title text-navy">
+					Monografías
+				</h3>
+			</div>
+		</section>
+
+
+		<section class="px-6 pt-20 xl:px-0">
+			<div class="container mx-auto">
+				<h3 class="section-title text-navy">
+					Simposios y talleres
+				</h3>
+			</div>
+		</section>
+
+
+		<section class="px-6 pt-20 xl:px-0">
+			<div class="container mx-auto">
+				<h3 class="section-title text-navy">
+					Neuropills
+				</h3>
+			</div>
+		</section>
+
+
+		<section class="px-6 pt-20 xl:px-0">
+			<div class="container mx-auto">
+				<h3 class="section-title text-navy">
+					Artículos
+				</h3>
+			</div>
+		</section>
+
+
+		<section class="px-6 pt-20 xl:px-0">
+			<div class="container mx-auto">
+				<h3 class="section-title text-navy">
+					Guías y manuales
+				</h3>
+			</div>
+		</section>
   </layout>
 </template>
 
