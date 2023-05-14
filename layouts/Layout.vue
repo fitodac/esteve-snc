@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div>
-		<Header navbarColor="navbarColor"/>
+		<Header :navbarColor="navbarColor ?? ''"/>
     <slot />
 		<Footer />
   </div>

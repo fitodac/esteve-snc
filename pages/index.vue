@@ -5,9 +5,9 @@ import Layout from '@/layouts/Layout'
 <template>
   <Layout 
 		navbarColor="dark">
-		<div class="test">
-			Esta es la página de inicio
-		</div>
+		
+		<img src="/img/hero.webp" alt="">
+
   </Layout>
 </template>
 

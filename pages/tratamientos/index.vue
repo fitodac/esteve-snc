@@ -1,9 +1,11 @@
-<script lang="ts" setup></script>
+<script setup>
+import Layout from '@/layouts/Layout'
+</script>
 
 <template>
-  <div>
-    Page: foo
-  </div>
+  <Layout>
+    Tratamientos
+  </layout>
 </template>
 
 <style scoped></style>

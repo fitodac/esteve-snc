@@ -2,3 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+	font-family: 'Barlow', sans-serif;
+}
+
+
+.section-title{
+	@apply 
+	text-xl 
+	font-semibold 
+	uppercase 
+	lg:text-3xl;
+}
