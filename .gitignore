@@ -58,6 +58,8 @@ api/wp-content/backup-db/*
 api/wp-content/cache/*
 api/wp-content/cache/supercache/*
 api/wp-content/w3tc-cache/*
+api/wp-content/wpvivid_staging/
+api/wp-content/wpvividbackups/
 
 api/wp-admin
 api/wp-includes
