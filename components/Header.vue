@@ -41,19 +41,19 @@ const navbarToggler = () => {
 		<ul class="nav">
 			<li>
 				<NuxtLink 
-					href="/"
+					href="/registro"
 					class="nav-link">Registro</NuxtLink>
 			</li>
 
 			<li class="border-l border-white border-opacity-60 h-4 pl-2">
 				<NuxtLink 
-					href="/"
+					href="/login"
 					class="nav-link">Iniciar sesión</NuxtLink>
 			</li>
 
 			<li class="border-l border-white border-opacity-60 h-4 pl-2">
 				<NuxtLink 
-					href="/"
+					href="/contacto"
 					class="nav-link">Contacto</NuxtLink>
 			</li>
 
