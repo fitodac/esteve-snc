@@ -38,7 +38,7 @@ const logos = [
 </script>
 
 <template>
-  <div class="leading-tight text-center px-6 py-14 xl:px-0">
+  <div class="leading-tight text-center px-6 py-14 2xl:px-0">
 		<div class="container mx-auto">
 			<div class="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
@@ -59,7 +59,7 @@ const logos = [
 		</div>
 	</div>
 
-	<section class="bg-stone-50 text-sm pt-14 pb-20 px-6 xl:px-0">
+	<section class="bg-stone-50 text-sm pt-14 pb-20 px-6 2xl:px-0">
 		<div class="container mx-auto">
 			<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-12">
 

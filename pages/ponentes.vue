@@ -20,7 +20,7 @@ import Layout from '@/layouts/Layout'
 		</section>
 
 
-		<section class="px-6 pt-20 xl:px-0">
+		<section class="px-6 pt-20 2xl:px-0">
 			<div class="container mx-auto">
 				<h3 class="section-title text-pink">
 					PROYECTO PADEAN/CASOS CLÍNICOS:
@@ -32,7 +32,7 @@ import Layout from '@/layouts/Layout'
 		</section>
 
 
-		<section class="px-6 pt-20 xl:px-0">
+		<section class="px-6 pt-20 2xl:px-0">
 			<div class="container mx-auto">
 				<h3 class="section-title text-pink">
 					APSAM:
@@ -44,7 +44,7 @@ import Layout from '@/layouts/Layout'
 		</section>
 
 
-		<section class="px-6 pt-20 xl:px-0">
+		<section class="px-6 pt-20 2xl:px-0">
 			<div class="container mx-auto">
 				<h3 class="section-title text-pink">
 					PSIQUIACTUAL
@@ -57,7 +57,7 @@ import Layout from '@/layouts/Layout'
 
 
 
-		<section class="px-6 pt-20 xl:px-0">
+		<section class="px-6 pt-20 2xl:px-0">
 			<div class="container mx-auto">
 				<h3 class="section-title text-pink">
 					XERIMEETINGS
@@ -67,7 +67,7 @@ import Layout from '@/layouts/Layout'
 
 
 
-		<section class="px-6 pt-20 xl:px-0">
+		<section class="px-6 pt-20 2xl:px-0">
 			<div class="container mx-auto">
 				<h3 class="section-title text-[#7DA1C4]">
 					MEET ALZHEIMER PROGRAM

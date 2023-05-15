@@ -5,7 +5,7 @@ if( !empty($block['anchor']) ) {
 	$id = $block['anchor'];
 }
 
-$className = "px-6 py-5 xl:px-0 ";
+$className = "px-6 py-5 2xl:px-0 ";
 
 if( !empty($block['className']) ) {
 	$className .= ' ' . $block['className'];

@@ -30,7 +30,6 @@ const navbarToggler = () => {
 	}
 }
 
-console.log('route', path)
 </script>
 
 
@@ -74,24 +73,25 @@ console.log('route', path)
 	<!-- Main header -->
 	<div 
 		class="flex justify-between items-center pl-16 pr-6 py-3.5 
-						sm:pt-2 md:justify-center md:pt-6 md:pb-0">
-		<NuxtLink href="/" class="w-24 block sm:w-32">
-			<h1 v-if="'/' === path">
-				<img 
-					:src="navbarColor === 'dark' ? `/img/brand.svg` : `/img/brand-white.svg`" 
-					alt="Canal Esteve SNC"
-					class="w-full h-full">
-			</h1>
+		sm:pt-2 md:justify-center md:pt-6 md:pb-0">
+		<h1 v-if="'/' === path">
+			<img 
+				:src="navbarColor === 'dark' ? `/img/brand.svg` : `/img/brand-white.svg`" 
+				alt="Canal Esteve SNC"
+				class="w-full h-full">
+				<span class="sr-only">Canal Esteve SNC</span>
+		</h1>
 
-			<div v-else>
-				<img 
-					:src="navbarColor === 'dark' ? `/img/brand.svg` : `/img/brand-white.svg`" 
-					alt="Canal Esteve SNC"
-					class="w-full h-full">
-			</div>
-
+		<div v-else>
+			<NuxtLink href="/" class="">
+			<img 
+				:src="navbarColor === 'dark' ? `/img/brand.svg` : `/img/brand-white.svg`" 
+				alt="Canal Esteve SNC"
+				class="w-full h-full">
 			<span class="sr-only">Canal Esteve SNC</span>
-		</NuxtLink>
+			</NuxtLink>
+		</div>
+
 
 		<button 
 			class="navbar-toggler text-white h-8 w-8 grid place-content-center
@@ -111,9 +111,7 @@ console.log('route', path)
 			<nav id="mainMenu">
 
 				<div class="menu-item">
-					<NuxtLink
-						href="/depresion-ansiedad"
-						class="menu-link">
+					<NuxtLink href="/depresion-ansiedad" class="menu-link">
 						Depresión y Ansiedad
 					</NuxtLink>
 				</div>
