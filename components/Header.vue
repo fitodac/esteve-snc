@@ -59,7 +59,7 @@ const navbarToggler = () => {
 
 			<li class="pl-2">
 				<NuxtLink 
-					href="/"
+					href="/ponentes"
 					class="nav-button">
 					Para ponentes
 				</NuxtLink>
