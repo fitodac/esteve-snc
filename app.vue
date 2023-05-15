@@ -1,8 +1,25 @@
+<script setup>
+import Loader from '@/components/Loader'
+
+const nuxtApp = useNuxtApp()
+const loading = ref(false)
+
+nuxtApp.hook("page:start", () => {
+	loading.value = true
+})
+
+nuxtApp.hook("page:finish", () => {
+	setTimeout(() => {
+		loading.value = false
+	}, 2000)
+})
+</script>
+
+
 <template>
   <div>
-    <!-- <NuxtWelcome /> -->
 		<NuxtLayout>
-			<NuxtLoadingIndicator />
+			<Loader v-if="loading" />
 			<NuxtPage />
 		</NuxtLayout>
   </div>
