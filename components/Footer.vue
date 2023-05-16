@@ -38,7 +38,7 @@ const logos = [
 </script>
 
 <template>
-  <div class="leading-tight text-center px-6 py-14 2xl:px-0">
+  <div class="border-t border-stone-100 leading-tight text-center px-6 py-14 2xl:px-0">
 		<div class="container mx-auto">
 			<div class="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
