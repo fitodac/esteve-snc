@@ -6,5 +6,4 @@ defineProps({
 
 <template>
 	<div v-html="data.innerHTML" />
-	<!-- <pre>{{ data }}</pre> -->
 </template>
