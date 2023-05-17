@@ -26,8 +26,8 @@ $image = get_field('image');
 			</div>
 		<?php else: ?>
 			<div class="pt-10">
-				<div class="bg-white h-[380px] rounded-3xl overflow-hidden">
-					<?php echo wp_get_attachment_image( $image, 'full', null, ['class' => 'w-full h-full object-cover'] ); ?>
+				<div class="bg-white max-h-[480px] rounded-3xl overflow-hidden">
+					<?php echo wp_get_attachment_image( $image, 'full', null, ['class' => 'w-full h-full object-cover aspect-video'] ); ?>
 				</div>
 			</div>
 		<?php endif; ?>
