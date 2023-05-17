@@ -1,5 +1,9 @@
 <script setup>
 import Layout from '@/layouts/Layout'
+
+const config = useRuntimeConfig()
+const {data, pending, error } = await useAsyncData(() => $fetch(`${config.API_URL}/options/depresion-ansiedad`) );
+console.log('data', data)
 </script>
 
 <template>

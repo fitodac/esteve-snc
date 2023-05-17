@@ -13,7 +13,6 @@ import List from '@/components/blocks/List.vue'
 const config = useRuntimeConfig()
 const { params } = useRoute()
 const router = useRouter()
-// const post = reactive({})
 const blocks = reactive([])
 const {data, pending, error } = await useAsyncData(() => $fetch(`${config.API_URL}/posts/?slug=${params.slug}`) );
 
@@ -25,8 +24,6 @@ if( !pending.value ){
 		console.log('Se ha productido un error')
 	}else{
 		if( !data.value.length ) router.push('/error404')
-		// Object.assign(post, data.value[0])
-		// Object.assign(blocks, data.value[0].blocks.filter(e => e.blockName))
 
 		const _blocks = [...data.value[0].blocks.filter(e => e.blockName)]
 
