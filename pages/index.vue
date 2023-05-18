@@ -8,8 +8,7 @@ console.log('data', data)
 </script>
 
 <template>
-  <Layout 
-		navbarColor="dark">
+  <Layout navbarColor="dark">
 		
 		<Hero />
 		<!-- <img src="/img/hero.webp" alt=""> -->
