@@ -1,9 +1,11 @@
-<script lang="ts" setup></script>
+<script setup>
+import Layout from '@/layouts/Layout'
+</script>
 
 <template>
-  <div>
-    Page: foo
-  </div>
+  <Layout>
+    <div class="py-32 text-center">Página de registro</div>
+  </Layout>
 </template>
 
 <style scoped></style>
