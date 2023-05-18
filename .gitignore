@@ -93,6 +93,6 @@ api/wp-mail.php
 local-xdebuginfo.php
 
 php_errorlog
-
+package-lock.json
 
 
