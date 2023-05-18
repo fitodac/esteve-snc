@@ -13,9 +13,14 @@ body{
 .section-title{
 	@apply 
 	text-xl 
+	leading-tight
 	font-semibold 
 	uppercase 
-	lg:text-3xl;
+	select-none 
+	sm:text-2xl
+	sm:leading-tight
+	md:text-3xl
+	md:leading-tight
 }
 
 
