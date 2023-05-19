@@ -4,7 +4,7 @@ import Hero from '@/components/Hero'
 
 const config = useRuntimeConfig()
 const {data, pending, error } = await useAsyncData(() => $fetch(`${config.API_URL}/options/home`) );
-console.log('data', data)
+// console.log('data', data)
 </script>
 
 <template>
