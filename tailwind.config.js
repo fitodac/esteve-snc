@@ -13,6 +13,7 @@ module.exports = {
 			colors: {
 				pink: {
 					100: '#FEF7F8',
+					200: '#E6D1D4',
 					DEFAULT: '#ED6F82'
 				},
 				purple: {
