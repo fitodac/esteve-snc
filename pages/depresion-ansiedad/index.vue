@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { register } from 'swiper/element/bundle'
 
 import Layout from '@/layouts/Layout'
@@ -16,6 +16,19 @@ const row3 = ref([])
 const row4 = ref([])
 const row5 = ref([])
 const row6 = ref([])
+
+const b1 = ref(false)
+const banners_loading = reactive({
+	banner1: false,
+	banner2: false,
+})
+const bannerLoaded = n => {
+	// const l = {...banners_loading}
+	// l[n] = true
+	// Object.assign()
+	console.log('banners_loading', n, banners_loading)
+	banners_loading[n] = true
+}
 
 const {data, pending, error } = await useAsyncData(() => $fetch(`${config.API_URL}/options/depresion-ansiedad`) );
 
@@ -69,12 +82,16 @@ if( !pending.value ){
 
 				<div class="max-w-sm mt-6 md:grid md:grid-cols-2 md:gap-x-10 md:max-w-full">
 					<div class="">
-						<img src="img/hablemos-de-psiquiatria-banner.webp" alt="Banner sobre Hablemos de psiquiatría legal">
+						<img 
+							src="img/hablemos-de-psiquiatria-banner.webp" 
+							alt="Banner sobre Hablemos de psiquiatría legal"
+							class="aspect-video">
 					</div>
 
 					<div class="mt-5 md:mt-0">
-						<h4 class="text-xl font-bold leading-tight lg:text-2xl lg:leading-tight">DE&CO: Formación<br>en Depresión y Comorbilidades</h4>
-						<p class="leading-tight mt-3 lg:text-lg lg:leading-tight">Programa formativo en el que se valora la depresión como una entidad que puede asociarse con otras patologías, como otros trastornos de la salud mental o enfermedades neurodegenerativas, así como su relación con el dolor y su abordaje en poblaciones especiales</p>
+						<h4 class="text-xl font-bold leading-tight lg:text-2xl lg:leading-tight">Implicaciones legales en la práctica psiquiátrica diaria</h4>
+						<p class="leading-tight mt-3 lg:text-lg lg:leading-tight">Iniciativa enfocada a solucionar dudas y consultas sobre implicaciones legales en la práctica clínica diaria en psiquiatría.</p>
+						
 						<div class="mt-10">
 							<nuxt-link 
 								to="https://estevepsiquiatrialegal.es/" 
@@ -100,12 +117,16 @@ if( !pending.value ){
 
 				<div class="max-w-sm mt-6 md:grid md:grid-cols-2 md:gap-x-10 md:max-w-full">
 					<div class="">
-						<img src="img/hablemos-de-psiquiatria-banner.webp" alt="Banner sobre Hablemos de psiquiatría legal">
+						<img 
+							src="img/de&co.webp" 
+							alt="Banner sobre Hablemos de psiquiatría legal"
+							class="aspect-video">
 					</div>
 
 					<div class="mt-5 md:mt-0">
-						<h4 class="text-xl font-bold leading-tight lg:text-2xl lg:leading-tight">Implicaciones legales en la práctica psiquiátrica diaria</h4>
-						<p class="leading-tight mt-3 lg:text-lg lg:leading-tight">Iniciativa enfocada a solucionar dudas y consultas sobre implicaciones legales en la práctica clínica diaria en psiquiatría.</p>
+						<h4 class="text-xl font-bold leading-tight lg:text-2xl lg:leading-tight">DE&CO: Formación<br>en Depresión y Comorbilidades</h4>
+						<p class="leading-tight mt-3 lg:text-lg lg:leading-tight">Programa formativo en el que se valora la depresión como una entidad que puede asociarse con otras patologías, como otros trastornos de la salud mental o enfermedades neurodegenerativas, así como su relación con el dolor y su abordaje en poblaciones especiales</p>
+
 						<div class="mt-10">
 							<nuxt-link 
 								to="https://estevepsiquiatrialegal.es/" 
