@@ -5,13 +5,16 @@ module.exports = {
   theme: {
     extend: {
 			backgroundSize:{
-				'70vw': '70vw auto'
+				'70vw': '70vw auto',
+				'sz-y-full': 'auto 100%'
 			},
 			backgroundPosition: {
-				
 			},
 			colors: {
-				pink: '#ED6F82',
+				pink: {
+					100: '#FEF7F8',
+					DEFAULT: '#ED6F82'
+				},
 				purple: {
 					DEFAULT: '#9A0079',
 					dark: '#280245'
