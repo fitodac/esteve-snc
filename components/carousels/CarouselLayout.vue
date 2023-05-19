@@ -69,11 +69,11 @@ const sliderNext = () => { slider.swiper.slideNext() }
 
 <template>
 	<div 
-		class="mx-6 mt-6 space-y-7 md:space-y-12 lg:space-y-16"
+		class="mx-6 mt-6 space-y-7 md:space-y-12"
 		:class="{'sm:mx-0': data.length > 2}">
 
 		<div class="sm:px-6 2xl:px-0">
-			<div class="max-w-5xl mx-auto relative">
+			<div class="max-w-5xl min-h-[50px] mx-auto relative">
 				<h3 class="section-title text-pink sm:mr-20 md:mr-28">{{ title }}</h3>
 				
 				<div class="hidden gap-x-3 justify-end sm:flex sm:absolute sm:right-0 sm:top-2">

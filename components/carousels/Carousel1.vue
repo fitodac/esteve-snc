@@ -1,6 +1,7 @@
 <script setup>
 import { reactive } from 'vue'
 import Slider from './CarouselLayout'
+import Image from './carousel_image'
 import BtnIconDownload from '../ButtonIconDownload'
 import sliderProps from '@/composables/sliderProps'
 import getImage from '@/composables/getImage'
@@ -18,15 +19,10 @@ props.data.forEach(async e => {
 	<div class="">
 		<Slider :data="data">
 			<swiper-slide 
-				v-for="p in data" 
+				v-for="p in posts" 
 				:key="Math.floor(Math.random() * 1000000).toString()">
 
-				<div class="w-full">
-					<img 
-						:src="p.image.src" 
-						:alt="p.image.alt"
-						class="w-full aspect-video object-cover rounded-xl">
-				</div>
+				<Image :src="p.image.src" :alt="p.image.alt" />
 
 				<h3 class="text-lg font-medium leading-tight mt-3" v-html="p.title" />
 				<div class="mt-6">
