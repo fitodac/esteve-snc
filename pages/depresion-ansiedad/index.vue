@@ -1,78 +1,56 @@
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
-import { register } from 'swiper/element/bundle'
-
 import Layout from '@/layouts/Layout'
-import Carousel1 from '@/components/carousels/Carousel1'
-import Carousel2 from '@/components/carousels/Carousel2'
-import Carousel3 from '@/components/carousels/Carousel3'
-import Carousel4 from '@/components/carousels/Carousel4'
+import PageHeader from '@/components/PageHeader'
+import CarouselPosts from '@/components/carousels/CarouselPosts'
+import CarouselFiles from '@/components/carousels/CarouselFiles'
+import FetchError from '@/components/FetchError'
 import BtnIconDiagonal from '@/components/ButtonIconDiagonal'
 import BtnIconLink from '@/components/ButtonIconLink'
+import BannerForYourPatients from '@/components/BannerForYourPatients'
 
-register()
 const config = useRuntimeConfig()
-const row3 = ref([])
-const row4 = ref([])
-const row5 = ref([])
-const row6 = ref([])
 
-const b1 = ref(false)
-const banners_loading = reactive({
-	banner1: false,
-	banner2: false,
-})
-const bannerLoaded = n => {
-	// const l = {...banners_loading}
-	// l[n] = true
-	// Object.assign()
-	console.log('banners_loading', n, banners_loading)
-	banners_loading[n] = true
-}
+const { data, pending, error } = await useFetch(`${config.public.API_URL}/options/depresion-ansiedad`)
 
-const {data, pending, error } = await useAsyncData(() => $fetch(`${config.API_URL}/options/depresion-ansiedad`) );
+if( error.value ) console.log(`Error: ${error.value}`)
 
-if( !pending.value ){
-	console.log('cargando datos...')
+const { 
+	posts_row_3: row3,
+	posts_row_4: row4,
+	posts_row_5: row5,
+	posts_row_6: row6
+} = data.value
 
-	if( error.value ){
-		console.log('Se ha productido un error:', error)
-	}else{
-		if( Object.keys(data.value).length ){
-			row3.value = [...data.value.posts_row_3]
-			row4.value = [...data.value.posts_row_4]
-			row5.value = [...data.value.posts_row_5]
-			row6.value = [...data.value.posts_row_6]
-		}
-
-		// console.log(row6.value)
-	}
-}
+const banner_4_your_patients = [
+	{ img: '/img/estar-mejor-o-estar-bien.webp', title: 'Cuaderno ¿Estar mejor o estar bien? (metas objetivas)', link: 'https://canalestevesnc.com/api/wp-content/uploads/2023/05/cuaderno-metas-objetivas.pdf' },
+	{ img: '/img/sintomas-de-la-depresion-y-ansiedad.webp', title: 'Cuaderno Síntomas depresión/ansiedad', link: 'https://canalestevesnc.com/api/wp-content/uploads/2023/05/sintomas-depresion-ansiedad.pdf' }
+]
 </script>
 
 <template>
   <Layout>
-		<section 
-			class="bg-pink bg-[url('/img/bg-page-header.svg')] bg-no-repeat bg-right-top bg-70vw 
-			text-white px-6 pb-20
-			md:pt-60 md:-mt-48
-			xl:px-0">
-			<div class="max-w-5xl mx-auto">
-				<h1 class="text-6xl font-bold leading-none md:text-5xl md:leading-none lg:text-6xl">
-					DEPRESIÓN <br>Y ANSIEDAD
-				</h1>
-				<h2 class="sr-only"></h2>
-			</div>
-		</section>
-
+		<PageHeader bg="pink" title="DEPRESIÓN <br>Y ANSIEDAD" />
 
 		<section class="py-14">
-			<Carousel1 v-if="row3.length" :data="row3" title="Newsletter Depression & Anxiety Today" />
+			<CarouselFiles 
+				v-if="row3"
+				:data="row3" 
+				title="Newsletter Depression & Anxiety Today" 
+				color="pink" />
+			
+			<FetchError v-else/>
 		</section>
 
 
-		<section class="bg-pink-100 pt-16 pb-20">
-			<Carousel2 v-if="row4.length" :data="row4" title="Casos clínicos Parean para atención primaria" />
+
+		<section class="bg-pink-50 pt-16 pb-20">
+			<CarouselFiles 
+				v-if="row4"
+				:data="row4" 
+				title="Casos clínicos Parean para atención primaria" 
+				color="pink" />
+
+			<FetchError v-else/>
 		</section>
 
 
@@ -83,7 +61,7 @@ if( !pending.value ){
 				<div class="max-w-sm mt-6 md:grid md:grid-cols-2 md:gap-x-10 md:max-w-full">
 					<div class="">
 						<img 
-							src="img/hablemos-de-psiquiatria-banner.webp" 
+							src="/img/hablemos-de-psiquiatria-banner.webp" 
 							alt="Banner sobre Hablemos de psiquiatría legal"
 							class="aspect-video">
 					</div>
@@ -106,8 +84,14 @@ if( !pending.value ){
 		</section>
 
 
-		<section class="bg-pink-100 pt-16 pb-20">
-			<Carousel3 v-if="row5.length" :data="row5" title="Webinars" />
+		<section class="bg-pink-50 pt-16 pb-20">
+			<CarouselPosts 
+				v-if="row5"
+				:data="row5" 
+				title="Webinars" 
+				color="pink" />
+
+			<FetchError v-else/>
 		</section>
 
 
@@ -118,7 +102,7 @@ if( !pending.value ){
 				<div class="max-w-sm mt-6 md:grid md:grid-cols-2 md:gap-x-10 md:max-w-full">
 					<div class="">
 						<img 
-							src="img/de&co.webp" 
+							src="/img/de&co.webp" 
 							alt="Banner sobre Hablemos de psiquiatría legal"
 							class="aspect-video">
 					</div>
@@ -129,7 +113,7 @@ if( !pending.value ){
 
 						<div class="mt-10">
 							<nuxt-link 
-								to="https://estevepsiquiatrialegal.es/" 
+								to="https://www.depresionycomorbilidades.com/"
 								target="_blank"
 								class="inline-flex transition-all hover:opacity-80">
 								<BtnIconLink />
@@ -146,7 +130,7 @@ if( !pending.value ){
 						</div>
 						<div class="w-32 md:w-56 lg:w-32">
 							<img 
-								src="img/logo-sociedad-espanola-de-psiquiatria.webp" 
+								src="/img/logo-sociedad-espanola-de-psiquiatria.webp" 
 								alt="Sociedad Española de Psiquiatría"
 								class="h-20 mx-auto object-contain">
 						</div>
@@ -159,7 +143,7 @@ if( !pending.value ){
 						</div>
 						<div class="w-32 md:w-56 lg:w-32">
 							<img 
-								src="img/logo-sociedad-espanola-de-psiquiatria-biologica.webp" 
+								src="/img/logo-sociedad-espanola-de-psiquiatria-biologica.webp" 
 								alt="Sociedad Española de Psiquiatría Biológica"
 								class="h-20 mx-auto object-contain">
 						</div>
@@ -169,9 +153,33 @@ if( !pending.value ){
 		</section>
 
 
-		<section class="bg-pink-100 pt-16 pb-20">
-			<Carousel4 v-if="row6.length" :data="row6" title="Artículos" />
+		<section class="bg-pink-50 pt-16 pb-20">
+			<CarouselPosts 
+				v-if="row6"
+				:data="row6" 
+				title="Artículos" 
+				color="pink" />
+
+			<FetchError v-else/>
 		</section>
+
+		<section class="banner banner-xeristar">
+			<div class="container">
+				<div class="text">
+					Frente a la depresión y la ansiedad <strong>Xeristar&reg; expande su luz con una gama más amplia.</strong>
+				</div>
+				<div>
+					<a href="/tratamientos/xeristar">
+						Conoce sus beneficios para profesionales sanitarios y pacientes
+						<span class="icon-link">
+							<BtnIconLink />
+						</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<BannerForYourPatients :data="banner_4_your_patients"/>
 
   </layout>
 </template>

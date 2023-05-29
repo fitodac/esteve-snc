@@ -22,13 +22,13 @@ const related_posts = data.value[0].acf?.related_posts ?? []
 
 <template>
 	<Layout>
-		<PostHeader bg="pink" />
+		<PostHeader bg="prod-inbrija" />
 
 		<PostContent
 			:error="error"
 			:blocks="_blocks" 
 			:related="related_posts"
-			color="pink" />
+			color="prod-inbrija" />
 
 	</Layout>
 </template>
