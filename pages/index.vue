@@ -1,43 +1,109 @@
 <script setup>
 import Layout from '@/layouts/Layout'
 import Hero from '@/components/Hero'
+import Image from '@/components/carousels/CarouselImage'
+import Subscribe from '@/components/Subscribe'
+import Patients from '@/components/BannerForPatients'
+import FetchError from '@/components/FetchError'
 
 const config = useRuntimeConfig()
-const {data, pending, error } = await useAsyncData(() => $fetch(`${config.API_URL}/options/home`) );
-// console.log('data', data)
+
+const { data, pending, error} = await useFetch(`${config.public.API_URL}/options/home`)
+
+if( error.value ) console.log(`Error: ${error.value}`)
+
+const { 
+	posts_row_1: row1,
+	posts_row_2: row2
+} = data.value
+
+const filetypes = ['.pdf', '.xls', '.doc', '.docx', '.jpg', 'webp', '.png']
+
+row1.forEach((e,i) => {
+	if( !filetypes.includes(e.link.url.substr(-4)) ){
+		if( e.link.url.indexOf('/api/') >= 0 ) row1[i].link.url = e.link.url.split('/api/')[1]
+	}
+})
 </script>
 
 <template>
   <Layout navbarColor="dark">
 		
 		<Hero />
-		<!-- <img src="/img/hero.webp" alt=""> -->
 
-		<section class="px-6 pt-20 2xl:px-0">
-			<div class="container mx-auto">
-				<h3 class="section-title text-pink">
-					Depresión y ansiedad
-				</h3>
+		<section class="px-6 pt-16 pb-20 2xl:px-0">
+			<div class="max-w-5xl mx-auto">
+				<h3 class="section-title text-pink">Depresión y ansiedad</h3>
+
+				<div v-if="row1" class="grid gap-10 mt-8 md:grid-cols-2">
+
+					<div 
+						v-for="p in row1"
+						:key="`depresion-ansiedad-${Math.floor(Math.random() * 1000000).toString()}`">
+						<div>
+							<Image :src="p.image" :alt="p.title" :loading="false" />
+
+							<div class="space-y-3 mt-4">
+								<h4 v-if="p.title" v-html="p.title" class="text-2xl font-semibold leading-tight" />
+								<div v-if="p.description" class="text-lg leading-tight" v-html="p.description" />
+							</div>
+
+							<div class="mt-10">
+								<nuxt-link 
+									:to="p.link.url"
+									:target="p.link.target ?? '_self'"
+									class="bg-purple text-white text-sm font-medium leading-tight px-20 pt-2.5 pb-3.5 rounded-lg transition-all hover:opacity-80">
+									Acceder
+								</nuxt-link>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+				<FetchError v-else/>
+
 			</div>
 		</section>
 
 
-		<section class="px-6 pt-20 2xl:px-0">
-			<div class="container mx-auto">
-				<h3 class="section-title text-navy">
-					Enfermedad de Alzheimer
-				</h3>
+		<section class="bg-navy-50 px-6 py-16 2xl:px-0">
+			<div class="max-w-5xl mx-auto">
+				<h3 class="section-title text-navy">Enfermedad de Alzheimer</h3>
+
+				<div v-if="row2" class="grid gap-10 mt-8 md:grid-cols-2">
+					
+					<div 
+						v-for="p in row2"
+						:key="`depresion-ansiedad-${p.ID}`">
+						<div>
+							<Image :src="p.post.featured_image" :alt="p.post.post_name" :loading="false" />
+
+							<div class="space-y-3 mt-4">
+								<h4 v-html="p.post.post_title" class="text-2xl font-semibold leading-tight" />
+								<div v-if="p.post.post_excerpt" class="text-lg leading-tight" v-html="p.post.post_excerpt" />
+							</div>
+
+							<div class="mt-10">
+								<nuxt-link 
+									:to="p.post.post_name"
+									class="bg-purple text-white text-sm font-medium leading-tight px-20 pt-2.5 pb-3.5 rounded-lg transition-all hover:opacity-80">
+									Acceder
+								</nuxt-link>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+
+				<FetchError v-else/>
+
 			</div>
 		</section>
 
-		
-		<section class="px-6 pt-20 2xl:px-0">
-			<div class="container mx-auto">
-				<h3 class="section-title text-aqua">
-					Para tus pacientes
-				</h3>
-			</div>
-		</section>
+		<Patients />
+
+		<!--<Subscribe />-->
 
   </Layout>
 </template>
