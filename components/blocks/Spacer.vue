@@ -1,7 +1,5 @@
 <script setup>
-defineProps({
-	data: Object
-})
+const props = defineProps({ data: Object })
 </script>
 
 <template>
