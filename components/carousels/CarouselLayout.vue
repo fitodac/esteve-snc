@@ -1,11 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-import { onMounted } from 'vue'
 import { register } from 'swiper/element/bundle'
 import sliderProps from '@/composables/sliderProps'
 
 register()
-
 const props = defineProps(sliderProps)
 
 const slider_id = `slider-${Math.floor(Math.random() * 1000000).toString()}`
@@ -25,25 +22,23 @@ onMounted(() => {
 	Object.assign(slider, {
 		slidesPerView: 1,
 		breakpoints: {
-			500: {
-				slidesPerView: 2,
-				centeredSlides: true
+			500: { slidesPerView: 2 },
+			640: { slidesPerView: 2.5 },
+			880: {
+				slidesPerView: 2.7
 			},
-			620: {
-				slidesPerView: 2,
-			},
-			700: {
-				slidesPerView: 3
-			},
-			768: {
-				slidesPerView: 4,
+			990: {
+				slidesPerView: 6,
 				centeredSlides: props.data.length > 2 ? true : false
 			},
-			900: {
-				slidesPerView: 4
-			},
 			1140: {
-				slidesPerView: 5
+				slidesPerView: 3.3,
+				spaceBetween: 30,
+				// centeredSlides: false
+			},
+			1400: {
+				slidesPerView: 4,
+				spaceBetween: 40,
 			}
 		},
 		spaceBetween: 20,
@@ -59,7 +54,6 @@ onMounted(() => {
 		const [swiper, progress] = event.detail;
 		setTimeout(() => buttonsVisibility(swiper.realIndex, swiper.slides.length), 1)
 	})
-
 })
 
 const sliderPrev = () => { slider.swiper.slidePrev() }
@@ -69,18 +63,28 @@ const sliderNext = () => { slider.swiper.slideNext() }
 
 <template>
 	<div 
-		class="mx-6 mt-6 space-y-7 md:space-y-12"
-		:class="{'sm:mx-0': data.length > 2}">
+		class="mx-6 mt-6 space-y-7 overflow-x-hidden sm:mr-0 md:space-y-12 lg:ml-0">
 
 		<div class="sm:px-6 2xl:px-0">
 			<div class="max-w-5xl min-h-[50px] mx-auto relative">
-				<h3 class="section-title text-pink sm:mr-20 md:mr-28">{{ title }}</h3>
+				<div 
+					class="sm:mr-20 md:mr-28"
+					:class="`text-${color}`">
+					<h3 
+						class="section-title">
+						{{ title }}
+					</h3>
+					<h4 class="section-subtitle">
+						{{ subtitle }}
+					</h4>
+				</div>
 				
+				<div class="bg-pink"></div>
 				<div class="hidden gap-x-3 justify-end sm:flex sm:absolute sm:right-0 sm:top-2">
 					<button 
 						@click="sliderPrev"
-						class="border border-gray-400 w-8 h-8 grid place-content-center rounded-lg transition-all group hover:bg-purple hover:border-purple hover:opacity-80 md:w-10 md:h-10"
-						:class="{'opacity-0 pointer-events-none': is_first_slider, 'opacity-100': !is_first_slider}">
+						class="border border-gray-400 w-8 h-8 grid place-content-center rounded-lg transition-all group hover:opacity-80 md:w-10 md:h-10"
+						:class="[{'opacity-0 pointer-events-none': is_first_slider, 'opacity-100': !is_first_slider}, `hover:bg-${color} hover:border-${color}`]">
 						<svg 
 							xmlns="http://www.w3.org/2000/svg" 
 							viewBox="0 0 15 9"
@@ -92,7 +96,8 @@ const sliderNext = () => { slider.swiper.slideNext() }
 
 					<button 
 						@click="sliderNext"
-						class="border border-gray-400 w-8 h-8 grid place-content-center rounded-lg transition-all group hover:bg-purple hover:border-purple hover:opacity-80 md:w-10 md:h-10">
+						class="border border-gray-400 w-8 h-8 grid place-content-center rounded-lg transition-all group hover:opacity-80 md:w-10 md:h-10"
+						:class="[{'opacity-0 pointer-events-none': is_last_slider, 'opacity-100': !is_last_slider}, `hover:bg-${color} hover:border-${color}`]">
 						<svg 
 							xmlns="http://www.w3.org/2000/svg" 
 							viewBox="0 0 15 9"
@@ -108,21 +113,36 @@ const sliderNext = () => { slider.swiper.slideNext() }
 
 		<swiper-container 
 			init="false" 
-			:id="slider_id">
+			:id="slider_id"
+			class="swiper-carousel">
 			<slot />
 		</swiper-container>
 	</div>
 </template>
 
 
+
 <style scoped>
-.animateBtnPrev-enter-active,
-.animateBtnPrev-leave-active{
-	transition: opacity .5 ease-in-out;
+@media (min-width: 600px){
+	.swiper-carousel{
+		margin-left: 4vw;
+	}
 }
 
-.animateBtnPrev-enter-from,
-.animateBtnPrev-enter-to{
-	opacity: 0;
+@media (min-width: 880px){
+	.swiper-carousel{ margin-left: 3vw; }
+}
+
+@media (min-width: 990px){
+	.swiper-carousel{ margin-left: -66vw; }
+}
+
+@media (min-width: 1140px){
+	.swiper-carousel{
+		position: relative;
+		left: 50vw;
+		margin-left: -32.5rem;
+		width: calc(64rem + ((100vw - 64rem)/2));
+	}
 }
 </style>
